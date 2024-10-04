@@ -1,0 +1,29 @@
+#!/bin/bash
+
+sudo -v
+
+echo
+echo "===Nessus-Configuration==="
+echo "      Made  by  AAN"
+echo
+echo
+echo "1.start"
+echo "2.stop"
+echo
+
+read -p "Input Prompt : " input
+
+# Konversi input dari pengguna untuk menentukan jenis kebawah
+case $input in
+1) input=start;;
+2) input=stop;;
+*) echo 
+echo "input tidak valid";exit 1;;
+esac
+
+
+echo
+echo "nessus success to $input"
+echo "Go check ip host: https://127.0.0.1:8834/"
+
+sudo systemctl $input nessusd.service
